@@ -4,20 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "ShikimoriSDK",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "ShikimoriSDK",
-            targets: ["ShikimoriSDK"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "ShikimoriSDK"),
-        .testTarget(
-            name: "ShikimoriSDKTests",
-            dependencies: ["ShikimoriSDK"]),
-    ]
+  name: "ShikimoriSDK",
+  platforms: [
+    .iOS(.v14)
+  ],
+  products: [
+    .library(
+      name: "ShikimoriSDK",
+      targets: ["ShikimoriSDK"]
+    ),
+  ],
+  targets: [
+    .target(
+      name: "ShikimoriSDK"
+    ),
+    .testTarget(
+      name: "ShikimoriSDKTests",
+      dependencies: ["ShikimoriSDK"]
+    ),
+  ]
 )
