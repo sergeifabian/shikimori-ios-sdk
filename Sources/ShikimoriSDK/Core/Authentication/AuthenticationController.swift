@@ -41,11 +41,15 @@ final class AuthenticationController: NSObject {
 
     session.presentationContextProvider = self
 
-    if session.canStart {
-      session.start()
-
+    if #available(iOS 13.4, *) {
+      if session.canStart {
+        session.start()
+        
+      } else {
+        completion(.error(.invalidSessionConfigs))
+      }
     } else {
-      completion(.error(.invalidSessionConfigs))
+      session.start()
     }
 
     self.session = session
