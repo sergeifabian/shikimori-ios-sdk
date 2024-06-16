@@ -1,12 +1,21 @@
 import Foundation
 
 public struct AccessToken: Decodable {
-  let accessToken: String
-  let refreshToken: String
-  let createdAt: Date
-  let expiresAt: Date
-  let tokenType: String
-  let scope: String
+  public let accessToken: String
+  public let refreshToken: String
+  public let createdAt: Date
+  public let expiresAt: Date
+  public let tokenType: String
+  public let scope: String
+
+  public init(accessToken: String, refreshToken: String, createdAt: Date, expiresAt: Date, tokenType: String, scope: String) {
+    self.accessToken = accessToken
+    self.refreshToken = refreshToken
+    self.createdAt = createdAt
+    self.expiresAt = expiresAt
+    self.tokenType = tokenType
+    self.scope = scope
+  }
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
