@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ShikimoriConfigs {
+public struct ShikimoriConfigs: Codable {
   let scheme: String
   let host: String
   let authorizationPath: String
